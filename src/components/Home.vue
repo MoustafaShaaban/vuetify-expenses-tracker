@@ -28,11 +28,11 @@ const transactions = computed(() => {
             <template v-slot:default="{ items }">
                 <v-container class="pa-2" fluid>
                     <v-row dense>
-                        <v-col v-for="item in items" :key="item.title" cols="auto" md="4">
+                        <v-col v-for="item in items" :key="item.id" cols="auto" md="4">
                             <v-card class="pb-3" border flat>
-                                <v-list-item :subtitle="item.dateAdded" class="mb-2">
+                                <v-list-item :subtitle="item.raw.dateAdded" class="mb-2">
                                     <template v-slot:title>
-                                        <strong class="text-h6 mb-2">{{ item.name }}</strong>
+                                        <strong class="text-h6 mb-2">{{ item.raw.name }}</strong>
                                     </template>
                                 </v-list-item>
 
@@ -40,7 +40,7 @@ const transactions = computed(() => {
                                     <div class="d-flex align-center text-caption text-medium-emphasis me-1">
                                         <v-icon icon="mdi-clock" start></v-icon>
 
-                                        <div class="text-truncate">{{ item.amount }}</div>
+                                        <div class="text-truncate">{{ item.raw.amount }} $</div>
                                     </div>
 
                                     <v-btn class="text-none" size="small" text="Read" border flat>
